@@ -9,10 +9,10 @@ import MySQLdb
 import asyncio
 import r6sapi as api
 
-db = MySQLdb.connect(host="localhost",user="***REMOVED***",passwd="***REMOVED***", db="forum")
+db = MySQLdb.connect(host="localhost",user="***REMOVED***",passwd="", db="forum")
 cur = db.cursor()
-apikeylol = "***REMOVED***"
-apikeytft = "***REMOVED***"
+apikeylol = ""
+apikeytft = ""
 
 rankelo = [[1100,1200,1300,1400,1500],[1600,1700,1800,1900,2000],[2100,2200,2300,2400,2500],[2600,2800,3000],[3200,3600,4000],[4400],[5000]]
 rankts = [[217,218,219,220,221],[222,223,224,225,226],[227,228,229,230,231],[232,233,234],[235,236,237],[238],[239]]
@@ -41,7 +41,7 @@ def r6rank(ts3conn, cur, r6, tsuid):
 	# info = json.loads(response.text)
 	try:
 		async def run(a):
-			auth = api.Auth("***REMOVED***", "***REMOVED***")
+			auth = api.Auth("", "")
 			player = await auth.get_player(a, api.Platforms.UPLAY)
 			mmr2 = await player.get_rank(api.RankedRegions.EU)
 			rank = mmr2.mmr
@@ -279,7 +279,7 @@ def rankchiffre(a):
 with ts3.query.TS3Connection("localhost") as ts3conn:
 	ts3conn.login(
 		client_login_name="***REMOVED***",
-		client_login_password="***REMOVED***"
+		client_login_password=""
 	)
 	ts3conn.use(sid=1)
 	ts3conn.clientupdate(client_nickname="Bot Jeux")
