@@ -7,7 +7,7 @@ import requests
 import json
 import MySQLdb
 
-db = MySQLdb.connect(host="localhost",user="***REMOVED***",passwd="***REMOVED***", db="forum")
+db = MySQLdb.connect(host="localhost",user="***REMOVED***",passwd="", db="forum")
 cur = db.cursor()
 
 def prog(ts3conn, cur):
@@ -142,7 +142,7 @@ def addjeu(ts3conn, tsuid, jeu):
 with ts3.query.TS3Connection("localhost") as ts3conn:
 	ts3conn.login(
 		client_login_name="***REMOVED***",
-		client_login_password="***REMOVED***"
+		client_login_password=""
 	)
 	ts3conn.use(sid=1)
 	ts3conn.clientupdate(client_nickname="Bot Steam")
