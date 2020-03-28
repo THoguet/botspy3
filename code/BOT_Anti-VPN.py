@@ -10,7 +10,7 @@ import re
 def lookup(ip):
 
 	response = urllib.request.Request("http://v2.api.iphub.info/ip/{}".format(ip))
-	response.add_header("X-Key", "***REMOVED***")
+	response.add_header("X-Key", "")
 	
 	try:
 		response = json.loads(urllib.request.urlopen(response).read().decode())
@@ -77,7 +77,7 @@ def prog(ts3conn):
 with ts3.query.TS3Connection("localhost") as ts3conn:
 	ts3conn.login(
 		client_login_name="***REMOVED***",
-		client_login_password="***REMOVED***"
+		client_login_password=""
 	)
 	ts3conn.use(sid=1)
 	ts3conn.clientupdate(client_nickname="Bot Anti-VPN")
