@@ -7,7 +7,7 @@ import requests
 import json
 import MySQLdb
 
-db = MySQLdb.connect(host="localhost",user="***REMOVED***",passwd="", db="forum")
+db = MySQLdb.connect(host="localhost",user="",passwd="", db="forum")
 cur = db.cursor()
 
 def prog(ts3conn, cur):
@@ -42,7 +42,7 @@ def steam(ts3conn, cur):
 				if steam is not None:
 					steamname = steam[30:]
 					try:
-						response = requests.get("http://api.steampowered.com/ISteamUser/ResolveVanityURL/v0001/?key=***REMOVED***&vanityurl="+steamname)
+						response = requests.get("http://api.steampowered.com/ISteamUser/ResolveVanityURL/v0001/?key=&vanityurl="+steamname)
 					except:
 						jeu = 0
 					info = json.loads(response.text)
@@ -50,7 +50,7 @@ def steam(ts3conn, cur):
 					if info['response']['success'] == 1:
 						steamid = info['response']['steamid']
 						try:
-							response = requests.get("http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=***REMOVED***&steamids="+steamid)
+							response = requests.get("http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=&steamids="+steamid)
 						except:
 							jeu = 0
 						info = json.loads(response.text)
@@ -61,7 +61,7 @@ def steam(ts3conn, cur):
 					elif info['response']['success'] == 42:
 						if len(steamname) == 17:
 							try:	
-								response = requests.get("http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=***REMOVED***&steamids="+steamname)
+								response = requests.get("http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=&steamids="+steamname)
 							except:
 								jeu = 0
 							info = json.loads(response.text)
@@ -141,7 +141,7 @@ def addjeu(ts3conn, tsuid, jeu):
 
 with ts3.query.TS3Connection("localhost") as ts3conn:
 	ts3conn.login(
-		client_login_name="***REMOVED***",
+		client_login_name="",
 		client_login_password=""
 	)
 	ts3conn.use(sid=1)

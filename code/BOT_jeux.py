@@ -9,7 +9,7 @@ import MySQLdb
 import asyncio
 import r6sapi as api
 
-db = MySQLdb.connect(host="localhost",user="***REMOVED***",passwd="", db="forum")
+db = MySQLdb.connect(host="localhost",user="",passwd="", db="forum")
 cur = db.cursor()
 apikeylol = ""
 apikeytft = ""
@@ -278,7 +278,7 @@ def rankchiffre(a):
 
 with ts3.query.TS3Connection("localhost") as ts3conn:
 	ts3conn.login(
-		client_login_name="***REMOVED***",
+		client_login_name="",
 		client_login_password=""
 	)
 	ts3conn.use(sid=1)

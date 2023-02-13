@@ -16,7 +16,7 @@ def prog(ts3conn):
 		#ts3conn.close()
 		return 2
 	try:
-		if event[0]["invokeruid"] == "***REMOVED***" or event[0]["invokeruid"] == "***REMOVED***" or event[0]["invokeruid"] == "***REMOVED***":
+		if event[0]["invokeruid"] == "" or event[0]["invokeruid"] == "" or event[0]["invokeruid"] == "":
 			msg = event[0]['msg']
 			msg = msg.lstrip(' ').rstrip(' ')
 			msg = msg.lower()
@@ -95,7 +95,7 @@ def prog(ts3conn):
 
 with ts3.query.TS3Connection("localhost") as ts3conn:
 	ts3conn.login(
-		client_login_name="***REMOVED***",
+		client_login_name="",
 		client_login_password=""
 	)
 	ts3conn.use(sid=1)
