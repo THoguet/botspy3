@@ -73,7 +73,7 @@ def prog(ts3conn, jeux, groupe):
 
 with ts3.query.TS3Connection("localhost") as ts3conn:
 	ts3conn.login(
-		client_login_name="***REMOVED***",
+		client_login_name="",
 		client_login_password=""
 	)
 	ts3conn.use(sid=1)
